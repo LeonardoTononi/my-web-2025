@@ -5,8 +5,8 @@ const config = {
 	kit: {
 		// Using static adapter for static site generation
 		adapter: static_adapter({
-			pages: 'build',
-			assets: 'build',
+			pages: 'public',
+			assets: 'public',
 			fallback: 'index.html', // Set fallback for SPA behavior
 			precompress: false,
 			strict: true,
