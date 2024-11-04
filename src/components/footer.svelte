@@ -1,9 +1,9 @@
 <section class="overflow-hidden py-16">
 	<div class="container mx-auto px-4">
 		<div class="-m-6 flex flex-wrap lg:items-center">
-			<div class="w-full p-6 md:w-auto">
+			<!-- <div class="w-full p-6 md:w-auto">
 				<img src="gradia-assets/logos/gradia-name-white.svg" alt="" />
-			</div>
+			</div> -->
 			<div class="w-full p-6 md:w-1/2">
 				<ul class="-m-5 flex flex-wrap">
 					<li class="p-5">

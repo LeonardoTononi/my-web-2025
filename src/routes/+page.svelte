@@ -7,8 +7,8 @@
 	import Seo from '../components/seo.svelte';
 </script>
 
-<Navbar />
 <Seo />
+<Navbar />
 <Header />
 <MyProjects />
 <Cta />

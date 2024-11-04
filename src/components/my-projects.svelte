@@ -35,9 +35,11 @@
 					<a class="group" href={project.url}>
 						<div class="mb-4 flex items-center gap-2">
 							<img
-								class="w-6 w-full transform transition duration-500 ease-out hover:scale-110"
+								class="h-6 w-6 transform transition duration-500 ease-out hover:scale-110"
 								src={project.logo}
 								alt={project.name}
+								width={24}
+								height={24}
 							/>
 							<h3
 								class="font-heading font-custom-text text-xl font-bold text-white group-hover:underline"

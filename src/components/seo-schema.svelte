@@ -1,81 +1,74 @@
 <script>
-    import hash from 'object-hash';
-    export let author;
-    export let siteLanguage;
-    export let siteTitle; 
-    export let siteTitleAlt;
-    export let siteUrl;
-    export let description;
+	import { onMount } from 'svelte';
+	export let author;
+	export let siteLanguage;
+	export let siteTitle;
+	export let siteTitleAlt;
+	export let siteUrl;
+	export let description;
 
-    const entityHash = hash({ author }, { algorithm: 'md5' });
+	let entityHash;
 
-    const personSchema = {
-        '@type': 'Person',
-        '@id': `${siteUrl}/#/schema/person/${entityHash}`,
-        name: author,
-        url: siteUrl
-    };
+	async function generateHash(str) {
+		const encoder = new TextEncoder();
+		const data = encoder.encode(str);
+		const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+		const hashArray = Array.from(new Uint8Array(hashBuffer));
+		return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+	}
 
-    const organizationSchema = {
-        '@type': 'Organization',
-        '@id': `${siteUrl}/#organization`,
-        name: siteTitle,
-        url: siteUrl,
-        logo: {
-            '@type': 'ImageObject',
-            url: `${siteUrl}/logo.png`,
-            width: 512,
-            height: 512
-        }
-    };
+	onMount(async () => {
+		entityHash = await generateHash(author);
+	});
 
-    const schemaOrgWebsite = {
-        '@type': 'WebSite',
-        '@id': `${siteUrl}/#website`,
-        url: siteUrl,
-        name: siteTitle,
-        description: description,
-        publisher: {
-            '@id': `${siteUrl}/#organization`
-        },
-        potentialAction: [
-            {
-                '@type': 'SearchAction',
-                target: `${siteUrl}/?s={query}`,
-                'query-input': 'required name=query'
-            }
-        ],
-        inLanguage: siteLanguage
-    };
+	const personSchema = {
+		'@type': 'Person',
+		'@id': `${siteUrl}/#/schema/person/${entityHash}`,
+		name: author,
+		url: siteUrl
+	};
 
-    const softwareAppSchema = {
-        '@type': 'SoftwareApplication',
-        name: siteTitle,
-        description: description,
-        applicationCategory: 'FinanceApplication',
-        operatingSystem: 'Web',
-        offers: {
-            '@type': 'Offer',
-            price: '50',
-            priceCurrency: 'EUR',
-            priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
-        }
-    };
+	const organizationSchema = {
+		'@type': 'Organization',
+		'@id': `${siteUrl}/#organization`,
+		name: siteTitle,
+		url: siteUrl,
+		logo: {
+			'@type': 'ImageObject',
+			url: `${siteUrl}/logo.png`,
+			width: 512,
+			height: 512
+		}
+	};
 
-    const schemaOrgArray = [personSchema, organizationSchema, schemaOrgWebsite, softwareAppSchema];
-    const schemaOrgObject = {
-        '@context': 'https://schema.org',
-        '@graph': schemaOrgArray
-    };
+	const schemaOrgWebsite = {
+		'@type': 'WebSite',
+		'@id': `${siteUrl}/#website`,
+		url: siteUrl,
+		name: siteTitle,
+		description: description,
+		publisher: {
+			'@id': `${siteUrl}/#organization`
+		},
+		potentialAction: [
+			{
+				'@type': 'SearchAction',
+				target: `${siteUrl}/?s={query}`,
+				'query-input': 'required name=query'
+			}
+		],
+		inLanguage: siteLanguage
+	};
 
-    let jsonLdString = JSON.stringify(schemaOrgObject);
-    let jsonLdScript = `
-      <script type="application/ld+json">
-        ${jsonLdString}
-      ${'<'}/script>
-    `;
+	const schemaOrgArray = [personSchema, organizationSchema, schemaOrgWebsite];
+	const schemaOrgObject = {
+		'@context': 'https://schema.org',
+		'@graph': schemaOrgArray
+	};
+
+	$: jsonLdScript = `<script type="application/ld+json">\${jsonLdString}<\/script>`;
 </script>
 
 <svelte:head>
-    {@html jsonLdScript}
+	{@html jsonLdScript}
 </svelte:head>
