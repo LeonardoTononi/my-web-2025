@@ -22,7 +22,7 @@
 <section class="relative overflow-hidden pb-32 pt-24">
 	<div class="container mx-auto mb-12 px-4">
 		<h2
-			class="font-heading mx-auto mb-6 max-w-xl text-center text-6xl font-bold text-white sm:text-7xl"
+			class="font-heading font-custom-text mx-auto mb-2 max-w-xl text-center text-6xl font-bold text-white sm:text-7xl"
 		>
 			Current Projects
 		</h2>
@@ -35,14 +35,14 @@
 					<a class="group" href={project.url}>
 						<div class="mb-4 flex items-center gap-2">
 							<img
-								class="h-6 w-6 transform transition duration-500 ease-out hover:scale-110"
+								class="h-6 w-6 transform rounded-md transition duration-500 ease-out hover:scale-110"
 								src={project.logo}
 								alt={project.name}
 								width={24}
 								height={24}
 							/>
 							<h3
-								class="font-heading font-custom-text text-xl font-bold text-white group-hover:underline"
+								class="font-heading font-custom-text text-xl font-semibold text-white group-hover:underline"
 							>
 								{project.name}
 							</h3>
@@ -59,7 +59,7 @@
 						{/each}
 					</div>
 					<a
-						class="btn btn-sm place-self-end border-none bg-primary text-base font-medium text-white hover:bg-primary/80"
+						class="btn btn-sm place-self-end border-none bg-yellow-400 text-base font-medium text-black hover:bg-yellow-500"
 						href={project.url}
 					>
 						<svg

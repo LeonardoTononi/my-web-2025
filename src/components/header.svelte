@@ -4,10 +4,12 @@
 			<!-- <p class="font-heading mb-5 text-xl font-medium text-gray-400">
 				From poker tables to programming terminals, and now to trading charts.
 			</p> -->
-			<h1 class="font-heading mb-4 text-6xl font-bold text-white md:text-7xl xl:text-8xl">
+			<h1
+				class="font-heading font-custom-text mb-4 text-6xl font-bold text-white md:text-7xl xl:text-8xl"
+			>
 				Hi, I'm Leonardo.
 			</h1>
-			<h2 class="font-heading mb-6 text-2xl font-bold text-white xl:text-6xl">
+			<h2 class="font-heading font-custom-text mb-6 text-2xl font-bold text-white xl:text-6xl">
 				Web Developer <span class="text-lg xl:text-4xl">&</span> Trader
 			</h2>
 			<!-- <div class="-m-3 mb-20 flex flex-wrap">
@@ -36,8 +38,12 @@
 				</div>
 			</div>
 
-			<div class="mx-auto max-w-max mt-12">
-				<img src="/leo-image.png" alt="Leonardo Tononi" class="w-64 rounded-full shadow-2xl shadow-yellow-500/10" />
+			<div class="mx-auto mt-12 max-w-max">
+				<img
+					src="/leo-image.png"
+					alt="Leonardo Tononi"
+					class="mask mask-squircle w-64 shadow-yellow-500/10"
+				/>
 			</div>
 		</div>
 	</div>

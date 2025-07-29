@@ -41,3 +41,7 @@ a {
     font-optical-sizing: auto;
     font-weight: 300;
 }
+
+body {
+    background: rgb(19, 18, 18);
+}
