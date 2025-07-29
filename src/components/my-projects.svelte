@@ -1,12 +1,12 @@
 <script>
 	const myProjects = [
 		{
-			url: 'https://mycryptoist.com',
-			logo: 'https://mycryptoist.com/logo.png',
-			name: 'MyCryptoist',
+			url: 'https://vittoriahotel.eu',
+			logo: 'https://vittoriahotel.eu/favicon.ico',
+			name: 'Hotel Vittoria',
 			description:
-				'A crypto portfolio tracker that helps you monitor and manage your cryptocurrency investments. Track your assets, analyze performance, and stay on top of your crypto portfolio with our intuitive platform.',
-			techStack: ['SvelteKit', 'Strapi', 'Stripe']
+				'A modern and elegant hotel website for Hotel Vittoria, featuring online room booking, detailed information about amenities and services, and a user-friendly interface for guests to explore and reserve their stay with ease.',
+			techStack: ['SvelteKit', 'Booking engine']
 		},
 		{
 			url: 'https://tradevault.app',
@@ -31,7 +31,7 @@
 		</p>
 		<div class="flex flex-col place-items-center gap-2 lg:flex-row">
 			{#each myProjects as project}
-				<div class="grid w-full bg-gray-600/20 rounded-2xl p-8">
+				<div class="grid w-full rounded-2xl bg-gray-600/20 p-8">
 					<a class="group" href={project.url}>
 						<div class="mb-4 flex items-center gap-2">
 							<img

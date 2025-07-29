@@ -26,7 +26,7 @@
 						<a
 							class="font-heading text-base text-gray-300 hover:text-gray-200"
 							target="_blank"
-							href="https://mycryptoist.com">mycryptoist.com</a
+							href="https://vittoriahotel.eu">vittoriahotel.eu</a
 						>
 					</li>
 					<li class="p-5">
