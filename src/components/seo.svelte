@@ -4,14 +4,14 @@
 	export let secondaryTitle = '';
 	export let image = '/leo-image.png';
 	export let description =
-		"From poker tables to software development, and now to trading charts. I've embraced the art of strategic thinking across different fields, always seeking new challenges and opportunities.";
+		'Leonardo Tononi — ex online poker player, web developer today, studying markets and building toward hospitality. A personal site about who I am and what I ship.';
 	const siteUrl = 'https://leonardotononi.com';
 	const author = 'Leonardo Tononi';
 	const siteLanguage = 'en';
-	const siteTitle = 'Leonardo Tononi - Web Developer & Trader';
-	const siteTitleAlt = 'Leonardo Tononi Portfolio';
+	const siteTitle = 'Leonardo Tononi — Web Developer';
+	const siteTitleAlt = 'Leonardo Tononi';
 	const keywords =
-		'web developer, trader, software engineer, full stack developer, javascript developer, react developer';
+		'Leonardo Tononi, web developer, poker player, trader, investor, hospitality, SvelteKit, portfolio';
 
 	const schemaOrgProps = {
 		author,

@@ -1,85 +1,89 @@
 <script>
-	const myProjects = [
-		{
-			url: 'https://vittoriahotel.eu',
-			logo: 'https://vittoriahotel.eu/favicon.ico',
-			name: 'Hotel Vittoria',
-			description:
-				'A modern and elegant hotel website for Hotel Vittoria, featuring online room booking, detailed information about amenities and services, and a user-friendly interface for guests to explore and reserve their stay with ease.',
-			techStack: ['SvelteKit', 'Booking engine']
-		},
-		{
-			url: 'https://tradevault.app',
-			logo: 'https://tradevault.app/logo.png',
-			name: 'TradeVault',
-			description:
-				'A comprehensive trading journal platform that helps traders track and analyze their performance. Record your trades, review your strategies with detailed analytics, and make data-driven decisions. Features an intuitive interface that gets you started in minutes, plus lifetime access with a single payment.',
-			techStack: ['SvelteKit', 'Supabase', 'Stripe']
-		}
-	];
+	import { projects } from '$lib/projects.js';
 </script>
 
-<section class="relative overflow-hidden pb-32 pt-24">
-	<div class="container mx-auto mb-12 px-4">
-		<h2
-			class="font-heading font-custom-text mx-auto mb-2 max-w-xl text-center text-6xl font-bold text-white sm:text-7xl"
-		>
-			Current Projects
-		</h2>
-		<p class="mx-auto mb-16 max-w-lg text-center text-lg text-gray-100">
-			Check out what I'm currently working on. These projects showcase my skills in web development.
-		</p>
-		<div class="flex flex-col place-items-center gap-2 lg:flex-row">
-			{#each myProjects as project}
-				<div class="grid w-full rounded-2xl bg-gray-600/20 p-8">
-					<a class="group" href={project.url}>
-						<div class="mb-4 flex items-center gap-2">
+<section id="projects" class="relative scroll-mt-24 pb-28 pt-8">
+	<div class="mx-auto max-w-6xl px-5 lg:px-8">
+		<div class="mb-14 max-w-xl">
+			<p class="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-yellow-400/90">
+				What I build
+			</p>
+			<h2 class="mb-4 text-4xl font-medium text-white sm:text-5xl">Projects</h2>
+			<p class="text-lg leading-relaxed text-stone-400">
+				Client sites and products I’ve shipped — hospitality, coaching, therapy, and trading tools.
+			</p>
+		</div>
+
+		<ul class="divide-y divide-white/[0.06] border-y border-white/[0.06]">
+			{#each projects as project}
+				<li>
+					<a
+						href={project.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group grid gap-4 py-8 transition-colors sm:grid-cols-[auto_1fr_auto] sm:items-start sm:gap-8 sm:py-10"
+					>
+						<div class="flex items-center gap-3 sm:pt-1">
 							<img
-								class="h-6 w-6 transform rounded-md transition duration-500 ease-out hover:scale-110"
+								class="h-9 w-9 rounded-lg object-contain ring-1 ring-white/10 transition duration-300 group-hover:scale-105"
 								src={project.logo}
-								alt={project.name}
-								width={24}
-								height={24}
+								alt=""
+								width={36}
+								height={36}
 							/>
-							<h3
-								class="font-heading font-custom-text text-xl font-semibold text-white group-hover:underline"
+							<span
+								class="text-xl font-medium text-white transition group-hover:text-yellow-400 sm:hidden"
 							>
 								{project.name}
-							</h3>
+							</span>
 						</div>
 
-						<p class="mb-5 text-base text-gray-100">
-							{project.description}
-						</p>
-					</a>
-					<div class="mb-4 flex flex-wrap gap-2">
-						{#each project.techStack as tech}
-							<span class="rounded-full bg-gray-700/50 px-3 py-1 text-sm text-gray-200">{tech}</span
-							>
-						{/each}
-					</div>
-					<a
-						class="btn btn-sm place-self-end border-none bg-yellow-400 text-base font-medium text-black hover:bg-yellow-500"
-						href={project.url}
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-3 w-3"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+						<div class="min-w-0">
+							<div class="mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+								<h3
+									class="hidden text-xl font-medium text-white transition group-hover:text-yellow-400 sm:block"
+								>
+									{project.name}
+								</h3>
+								<span class="text-sm text-stone-500 transition group-hover:text-stone-400">
+									{project.url.replace(/^https?:\/\//, '')}
+								</span>
+							</div>
+							<p class="max-w-2xl text-base leading-relaxed text-stone-400">
+								{project.description}
+							</p>
+							<div class="mt-4 flex flex-wrap gap-2">
+								{#each project.techStack as tech}
+									<span
+										class="rounded-md border border-white/10 px-2.5 py-0.5 text-xs tracking-wide text-stone-400"
+									>
+										{tech}
+									</span>
+								{/each}
+							</div>
+						</div>
+
+						<span
+							class="inline-flex items-center gap-1.5 self-start text-sm font-medium text-stone-500 transition group-hover:text-yellow-400 sm:pt-1"
 						>
-							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-							<polyline points="15 3 21 3 21 9"></polyline>
-							<line x1="10" y1="14" x2="21" y2="3"></line>
-						</svg>
-						Learn more
+							Visit
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="M7 17L17 7" />
+								<path d="M7 7h10v10" />
+							</svg>
+						</span>
 					</a>
-				</div>
+				</li>
 			{/each}
-		</div>
+		</ul>
 	</div>
 </section>
