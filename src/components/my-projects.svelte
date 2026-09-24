@@ -10,7 +10,7 @@
 			</p>
 			<h2 class="mb-4 text-4xl font-medium text-white sm:text-5xl">Projects</h2>
 			<p class="text-lg leading-relaxed text-stone-400">
-				Client sites and products I’ve shipped — hospitality, coaching, therapy, and trading tools.
+				Client sites and products I’ve shipped — hospitality, coaching, therapy, and skills showcases.
 			</p>
 		</div>
 

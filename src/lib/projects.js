@@ -3,20 +3,36 @@
 /** @type {Project[]} */
 export const projects = [
 	{
-		url: 'https://vittoriahotel.eu',
-		logo: 'https://vittoriahotel.eu/favicon.ico',
+		url: 'https://hotelvittoriamaderno.it',
+		logo: 'https://hotelvittoriamaderno.it/favicon.ico',
 		name: 'Hotel Vittoria',
 		description:
 			'Elegant hotel website with online room booking, amenities, and a clear guest journey from discovery to reservation.',
 		techStack: ['SvelteKit', 'Booking engine']
 	},
 	{
-		url: 'https://tradevault.app',
-		logo: 'https://tradevault.app/logo.png',
+		url: 'https://borgoanticoapartments.com',
+		logo: 'https://borgoanticoapartments.com/favicon.ico',
+		name: 'Borgo Antico Apartments',
+		description:
+			'Holiday apartments site on Lake Garda — renovated flats, shared pool and olive garden, with a clear path to book direct.',
+		techStack: ['SvelteKit', 'Booking']
+	},
+	{
+		url: 'https://tradevault-test-1.vercel.app',
+		logo: 'https://tradevault-test-1.vercel.app/favicon.ico',
 		name: 'TradeVault',
 		description:
-			'Trading journal platform to log trades, review strategies with analytics, and make clearer decisions — lifetime access, one payment.',
+			'Skills showcase web app (vetrina) — a live demo of product UI and full-stack craft, not a shipping trading product.',
 		techStack: ['SvelteKit', 'Supabase', 'Stripe']
+	},
+	{
+		url: 'https://www.sitochefunziona.it',
+		logo: 'https://www.sitochefunziona.it/favicon.ico',
+		name: 'SitoCheFunziona',
+		description:
+			'Agency site for rebuilding business websites that convert — free mockups, clearer journeys, more direct enquiries and bookings.',
+		techStack: ['Next.js']
 	},
 	{
 		url: 'https://terapiaconbernardita.com',
