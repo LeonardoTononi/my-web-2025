@@ -23,7 +23,7 @@
 			{#each grouped as group}
 				{#if group.items.length}
 					<section aria-labelledby={`projects-${group.id}`}>
-						<div class="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/[0.06] pb-5">
+						<div class="mb-8 flex flex-wrap items-end justify-between gap-4">
 							<div>
 								<p
 									id={`projects-${group.id}`}
@@ -38,68 +38,66 @@
 							</span>
 						</div>
 
-						<ul class="divide-y divide-white/[0.06]">
+						<ul class="space-y-4">
 							{#each group.items as project}
 								<li>
 									<a
 										href={project.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="group grid gap-6 py-10 transition-colors lg:grid-cols-[minmax(0,18rem)_1fr_auto] lg:items-start lg:gap-10"
+										class="group grid gap-5 rounded-3xl border border-white/[0.06] bg-white/[0.02] p-4 transition duration-300 hover:border-yellow-400/25 hover:bg-white/[0.04] sm:p-5 lg:grid-cols-[minmax(0,20rem)_1fr_auto] lg:items-center lg:gap-8"
 									>
 										<div
-											class="relative aspect-[16/10] overflow-hidden ring-1 ring-white/10 transition duration-500 group-hover:ring-yellow-400/30"
+											class="relative aspect-[16/10] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:ring-yellow-400/35"
 										>
 											<img
 												src={project.screenshot}
 												alt=""
-												class="h-full w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.03]"
+												class="h-full w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.04]"
 												width={1440}
 												height={900}
 												loading="lazy"
 											/>
 											<div
-												class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(19,18,18)]/35 via-transparent to-transparent"
+												class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgb(19,18,18)]/40 via-transparent to-transparent"
 												aria-hidden="true"
 											></div>
 										</div>
 
-										<div class="min-w-0">
-											<div class="mb-3 flex flex-wrap items-center gap-2.5">
+										<div class="min-w-0 px-1 lg:px-0">
+											<div class="mb-3 flex flex-wrap items-center gap-3">
 												<img
-													class="h-8 w-8 rounded-md object-contain ring-1 ring-white/10"
+													class="h-9 w-9 rounded-full object-cover ring-1 ring-white/15"
 													src={project.logo}
 													alt=""
-													width={32}
-													height={32}
+													width={36}
+													height={36}
 												/>
-												<h3
-													class="text-xl font-medium text-white transition group-hover:text-yellow-400"
-												>
-													{project.name}
-												</h3>
-												<span
-													class="rounded-md border border-yellow-400/30 px-2 py-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-yellow-400/90"
-												>
-													{group.label}
-												</span>
-												<span
-													class="rounded-md border border-white/10 px-2 py-0.5 text-[11px] tracking-[0.12em] text-stone-500"
-												>
-													{project.type}
-												</span>
+												<div class="min-w-0">
+													<h3
+														class="text-xl font-medium text-white transition group-hover:text-yellow-400"
+													>
+														{project.name}
+													</h3>
+													<p class="text-sm text-stone-500 transition group-hover:text-stone-400">
+														{project.url.replace(/^https?:\/\//, '')}
+													</p>
+												</div>
 											</div>
 
-											<p class="mb-3 text-sm text-stone-500 transition group-hover:text-stone-400">
-												{project.url.replace(/^https?:\/\//, '')}
-											</p>
 											<p class="max-w-2xl text-base leading-relaxed text-stone-400">
 												{project.description}
 											</p>
-											<div class="mt-4 flex flex-wrap gap-2">
+
+											<div class="mt-4 flex flex-wrap items-center gap-2">
+												<span
+													class="rounded-full border border-yellow-400/25 bg-yellow-400/5 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.12em] text-yellow-400/90"
+												>
+													{project.type}
+												</span>
 												{#each project.techStack as tech}
 													<span
-														class="rounded-md border border-white/10 px-2.5 py-0.5 text-xs tracking-wide text-stone-400"
+														class="rounded-full border border-white/10 px-2.5 py-0.5 text-xs tracking-wide text-stone-400"
 													>
 														{tech}
 													</span>
@@ -108,7 +106,7 @@
 										</div>
 
 										<span
-											class="inline-flex items-center gap-1.5 self-start text-sm font-medium text-stone-500 transition group-hover:text-yellow-400 lg:pt-1"
+											class="inline-flex items-center gap-1.5 self-start rounded-full border border-white/10 px-3.5 py-2 text-sm font-medium text-stone-400 transition group-hover:border-yellow-400/30 group-hover:text-yellow-400 lg:self-center"
 										>
 											Visit
 											<svg
