@@ -7,6 +7,7 @@
 				Web developer - Investor
 			</p>
 			<h1
+				data-hero-logo
 				class="animate-fade-up delay-1 logo mb-6 text-6xl leading-none text-white sm:text-7xl lg:text-8xl"
 			>
 				Leonardo

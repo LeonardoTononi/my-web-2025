@@ -1,6 +1,50 @@
-<nav class="sticky top-0 z-50 border-b border-white/[0.06] bg-[rgb(19,18,18)]/80 backdrop-blur-md">
+<script>
+	import { onMount } from 'svelte';
+
+	/** Shown only after the hero “Leonardo” logo leaves the viewport. */
+	let showLogo = false;
+
+	onMount(() => {
+		const heroLogo = document.querySelector('[data-hero-logo]');
+		if (!heroLogo) {
+			showLogo = true;
+			return;
+		}
+
+		// Shrink the observation root by the sticky nav height so the swap
+		// happens as the hero mark slips under the bar — not after it fully exits.
+		const nav = document.querySelector('[data-site-nav]');
+		const navOffset = nav instanceof HTMLElement ? Math.ceil(nav.getBoundingClientRect().height) : 72;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				showLogo = !entry.isIntersecting;
+			},
+			{
+				root: null,
+				threshold: 0,
+				rootMargin: `-${navOffset}px 0px 0px 0px`
+			}
+		);
+
+		observer.observe(heroLogo);
+		return () => observer.disconnect();
+	});
+</script>
+
+<nav
+	data-site-nav
+	class="sticky top-0 z-50 border-b border-white/[0.06] bg-[rgb(19,18,18)]/80 backdrop-blur-md"
+>
 	<div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8">
-		<a href="/" class="logo text-3xl text-white transition-opacity hover:opacity-80 lg:text-4xl">
+		<a
+			href="/"
+			class="logo text-3xl text-white transition-opacity duration-300 ease-out hover:opacity-80 lg:text-4xl {showLogo
+				? 'opacity-100'
+				: 'pointer-events-none opacity-0'}"
+			aria-hidden={showLogo ? undefined : 'true'}
+			tabindex={showLogo ? undefined : -1}
+		>
 			Leonardo
 		</a>
 		<a
